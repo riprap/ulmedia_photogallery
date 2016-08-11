@@ -17,19 +17,21 @@ class Bootstrap
 				$controller = new UserController;
 				break;
 			case 'gallery':
-			case '':
 				$controller = new GalleryController;
 				break;
 			default:
+				header('Location: /gallery/list');
 				throw new Exception("Unrecognized request: Invalid Controller name");
 		}
 
 		// TODO: add hyphenated actions
 		// this will only work for single word actions ...
-		$actionString = strtolower(@$explodedRequest[2] ? $explodedRequest[2] : 'index');
+		$actionString = strtolower(@$explodedRequest[2] ? $explodedRequest[2] : 'list');
 		$action = $actionString . "Action";
 
 		if (!method_exists($controller, $action)) {
+			header('Location: /gallery/list');
+			exit;
 			throw new \Exception("Unrecognized request: Action does not exist");
 		}
 

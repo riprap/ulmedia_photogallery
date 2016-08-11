@@ -29,7 +29,7 @@ class UserController
 		$loggedIn = $userStorage->matchLoginDetails($_POST['username'], $_POST['password']);
 		if ($loggedIn) {
 			$userStorage->login();
-			header('Location: /gallery');
+			header('Location: /gallery/list');
 		}
 
 		return $data['error'] = "Username and password don't match";
@@ -39,6 +39,8 @@ class UserController
 	{
 		$userStorage = new UserStorage();
 		$userStorage->logout();
+		header('Location: /user/login');
+		exit;
 	}
 
 	private function checkLoginDetails($options)

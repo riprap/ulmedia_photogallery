@@ -11,7 +11,7 @@ class GalleryController
 
 	public function viewAction()
 	{
-
+		
 	}
 
 	public function editAction()
