@@ -6,20 +6,19 @@ class Bootstrap
 {
 	public static function run()
 	{
-
 		// depending on the request, send to a controller
 		$request = $_SERVER['REQUEST_URI'];
 		$explodedRequest = explode("/", $request);
 
-		$controller = strtolower($explodedRequest[0]);
+		$controllerString = strtolower($explodedRequest[1]);
 
-		switch ($controller) {
+		switch ($controllerString) {
 			case 'user':
-				$controller = "UserController";
+				$controller = new UserController;
 				break;
 			case 'gallery':
 			case '':
-				$controller = "GalleryController";
+				$controller = new GalleryController;
 				break;
 			default:
 				throw new Exception("Unrecognized request: Invalid Controller name");
@@ -27,18 +26,19 @@ class Bootstrap
 
 		// TODO: add hyphenated actions
 		// this will only work for single word actions ...
-		$action = strtolower(@$explodedRequest[1] ? $explodedRequest[1] : 'index');
-		$action .= "Action";
+		$actionString = strtolower(@$explodedRequest[2] ? $explodedRequest[2] : 'index');
+		$action = $actionString . "Action";
 
 		if (!method_exists($controller, $action)) {
 			throw new \Exception("Unrecognized request: Action does not exist");
 		}
 
 		$controller = new $controller;
-		$data = $controller->action();
+		$data = $controller->$action();
 		
-		return;
-		// echo new View($data);
-		// die;
+		
+		$view = new View($data, $controllerString, $actionString);
+		echo $view->render();
+		die;
 	}
 }

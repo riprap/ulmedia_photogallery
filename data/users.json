@@ -1,14 +1,16 @@
 {
-	{
-		"id" : 1,
-		"username" : "nknill",
-		"password" : "$2y$10$K2gHX6plNlVHlv34hHJcOO0uLIgXsGAfmK0c6lW5y/4ePfz42katq",
-		"role" : "editor",
-	},
-	{
-		"id" : 2
-		"username" : "pavel",
-		"password" : "$2y$10$/q0x3HNsG1UgatNvIH/rqOo1Sflj2O55CAtTbednyWwaR0YOMgCNy",
-		"role" :  "normal"
-	},
+	"0" :
+		{
+			"id" : 1,
+			"username" : "nknill",
+			"password" : "$2y$10$K2gHX6plNlVHlv34hHJcOO0uLIgXsGAfmK0c6lW5y/4ePfz42katq",
+			"role" : "editor"
+		},
+	"1" :
+		{
+			"id" : 2,
+			"username" : "pavel",
+			"password" : "$2y$10$/q0x3HNsG1UgatNvIH/rqOo1Sflj2O55CAtTbednyWwaR0YOMgCNy",
+			"role" :  "normal"
+		}
 }
