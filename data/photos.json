@@ -1,20 +1,20 @@
 {
+	"0" :
 	{
 		"id" : 1,
 		"gallery_id" : 1,
-		"filepath": "images/image1.jpg",
+		"filepath": "/images/kanye.jpg"
 	},
+	"1" :
 	{
 		"id" : 2,
 		"gallery_id" : 1,
-		"filepath": "images/image2.jpg",
+		"filepath": "/images/chance.jpg"
 	},
-
+	"2" :
 	{
 		"id" : 2,
 		"gallery_id" : 2,
-		"filepath": "images/image3.jpg",
-	},
-
-
+		"filepath": "/images/kendrick.jpg"
+	}
 }
