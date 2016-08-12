@@ -2,10 +2,21 @@
 <head>
 </head>
 <body>
-<p><a href="/user/login">Login</a>
-<a href="/user/logout">Logout</a></p>
-<h1>Galleries go here:</h1>
-<p><a href="/gallery/view/?id=1">Gallery 1</a>
-<a href="/gallery/view/?id=2">Gallery 2</a></p>
+<?php if (!$this->data['is_logged_in']): ?>
+	<p><a href="/user/login">Editor Login</a></p>
+<?php else : ?>
+	<p>You are currently logged in. <a href="/user/logout">Logout</a></p>
+<?php endif; ?>	
+
+<h1>Galleries</h1>
+<?php foreach ($this->data['galleries'] as $gallery): ?>
+	<p>
+		<?php echo $gallery->name;?>
+		<a href="/gallery/view/?id=<?php echo $gallery->id; ?>">View</a>
+		<?php if ($this->data['is_logged_in']): ?>
+			<a href="/gallery/edit/?id=<?php echo $gallery->id; ?>">Edit</a>
+		<?php endif; ?>
+	</p>
+<?php endforeach; ?>
 </body>
 </html>
