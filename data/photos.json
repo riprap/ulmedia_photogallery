@@ -1,20 +1,17 @@
+[
 {
-	"0" :
-	{
-		"id" : 1,
-		"gallery_id" : 1,
-		"filepath": "/images/kanye.jpg"
-	},
-	"1" :
-	{
-		"id" : 2,
-		"gallery_id" : 1,
-		"filepath": "/images/chance.jpg"
-	},
-	"2" :
-	{
-		"id" : 2,
-		"gallery_id" : 2,
-		"filepath": "/images/kendrick.jpg"
-	}
+	"id" : 1,
+	"gallery_id" : 1,
+	"filepath": "/images/kanye.jpg"
+},
+{
+	"id" : 2,
+	"gallery_id" : 1,
+	"filepath": "/images/chance.jpg"
+},
+{
+	"id" : 3,
+	"gallery_id" : 2,
+	"filepath": "/images/kendrick.jpg"
 }
+]

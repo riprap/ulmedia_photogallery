@@ -1,12 +1,9 @@
+[{
+	"id" : "1",
+	"name" : "Nolan's First Gallery"
+},
 {
-	"0" :
-	{
-		"id" : "1",
-		"name" : "Nolan's First Gallery"
-	},
-	"1" :
-	{
-		"id" : "2",
-		"name" : "Nolan's Improved Gallery"
-	}
+	"id" : "2",
+	"name" : "Nolan's Improved Gallery"
 }
+]

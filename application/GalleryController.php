@@ -51,6 +51,43 @@ class GalleryController
 
 	}
 
+	public function deleteAction()
+	{
+		$deleteGallery = $this->getGalleryViaRequest();
+		$this->deleteGallery($deleteGallery);
+		$this->deletePhotosFromGallery($deleteGallery);
+		return array('gallery' => $deleteGallery);
+	}
+
+	private function deleteGallery($deleteGallery)
+	{
+		// delete gallery
+		$saveGalleries = array();
+		foreach ($this->getGalleriesData() as $gallery) {
+			if ($gallery->id !== $deleteGallery->id) {
+				$saveGalleries[] = $gallery;
+			}
+		}
+		return Data::overwriteDataAsJson('galleries.json', json_encode($saveGalleries));
+	}
+
+	private function deletePhotosFromGallery($deleteGallery)
+	{
+		// delete photos in gallery
+		$deletePhotoIds = array();
+		foreach ($this->getPhotosInGallery($deleteGallery) as $deletePhoto) {
+			$deletePhotoIds[] = $deletePhoto->id;
+		}
+		$savePhotos = array();
+		foreach ($this->getPhotosData() as $photo) {
+			if (!in_array($photo->id, $deletePhotoIds)) {
+				$savePhotos[] = $photo;
+			}
+		}
+
+		return Data::overwriteDataAsJson('photos.json', json_encode($savePhotos));
+	}
+
 	private function getUserIsLoggedIn()
 	{
 		$userStorage = new UserStorage;

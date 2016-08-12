@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>Edit Gallery <?php echo $this->data['gallery']->id; ?></title>
+</head>
+<body>
+<p>You are currently logged in. <a href="/user/logout">Logout</a></p>
+
+<h1>Gallery ID = <?php echo $this->data['gallery']->id; ?></h1>
+
+
+<form action="" method="POST">
+
+</form>
+
+<?php foreach ($this->data['photos'] as $photo): ?>
+	<img src="<?php echo $photo->filepath; ?>">
+
+<?php endforeach; ?>
+</body>
+</html>

@@ -1,5 +1,6 @@
 <html>
 <head>
+<title>List Galleries</title>
 </head>
 <body>
 <?php if (!$this->data['is_logged_in']): ?>
@@ -15,8 +16,19 @@
 		<a href="/gallery/view/?id=<?php echo $gallery->id; ?>">View</a>
 		<?php if ($this->data['is_logged_in']): ?>
 			<a href="/gallery/edit/?id=<?php echo $gallery->id; ?>">Edit</a>
+			<a href="javascript:confirmDelete(<?php echo $gallery->id; ?>)">Delete</a>
 		<?php endif; ?>
 	</p>
 <?php endforeach; ?>
+
+<script>
+function confirmDelete(id)
+{
+	x = confirm("Are you sure you want to delete gallery #" +id.toString() + "?");
+	if (x) {
+		window.location = '/gallery/delete/?id=' + id.toString();
+	}
+}
+</script>
 </body>
 </html>
