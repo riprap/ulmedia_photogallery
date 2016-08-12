@@ -6,17 +6,14 @@ class View
 {
 	public function __construct($data, $controller, $action)
 	{
-		$this->html = $this->getViewScript($controller, $action);
+		$this->viewScript = __DIR__ . '/views/' . $controller . '/' . $action . '.html';
+		$this->data = $data;
 	}
 
 	public function render()
 	{
-		return $this->html;
-	}
-
-	private function getViewScript($controller, $action)
-	{
-		$file = __DIR__ . '/views/' . $controller . '/' . $action . '.html';
-		return file_get_contents($file);
+		ob_start();
+		include $this->viewScript;
+		return ob_get_clean();
 	}
 }

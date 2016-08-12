@@ -38,7 +38,6 @@ class Bootstrap
 		$controller = new $controller;
 		$data = $controller->$action();
 		
-		
 		$view = new View($data, $controllerString, $actionString);
 		echo $view->render();
 		die;
